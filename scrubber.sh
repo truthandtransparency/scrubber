@@ -21,7 +21,8 @@ function run_container(){
   params=$(echo "$@" | sed 's:'"$MAPPED_OUTPUT"':'"$DOCKER_OUTPUT_DIR"':g' | sed 's:'"$MAPPED_INPUT"':'"$DOCKER_INPUT_DIR"':g' | sed 's:--local ::g')
   
   # Start and run docker container with appropriate directories mapped and image used.
-  eval docker run -it -u $(id -ur) --rm --name scrubber -v "$MAPPED_INPUT":"$DOCKER_INPUT_DIR" -v "$MAPPED_OUTPUT":"$DOCKER_OUTPUT_DIR" "$IMAGE" "$params"
+  print_message "INFO" "Starting docker container."
+  eval docker run -it -u $(id -ur) --rm --name scrubber -v "$(readlink --canonicalize "$MAPPED_INPUT")":"$DOCKER_INPUT_DIR" -v "$(readlink --canonicalize "$MAPPED_OUTPUT")":"$DOCKER_OUTPUT_DIR" "$IMAGE" "$params"
 }
 
 function build_image(){

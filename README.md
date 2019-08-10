@@ -26,6 +26,8 @@ That will pull down the official Scrubber [docker container](https://hub.docker.
 ./scrubber.sh --local -i /path/to/input/pdf -o /path/to/desired/output/pdf
 ```
 
+_*NOTE: Currently Scrubber requires that absolute filepaths be passed to it. This will be fixed in the near future._
+
 A full list of command options is as follows:
 
 ```
@@ -66,8 +68,9 @@ A bash script containing functions used in both `scrub.sh` and `scrubber.sh`.
  There is absolutely no guarantee that Scrubber will completely clean all potentially identifying information from a document. It should not be treated as a "silver bullet".
 
  ## ROADMAP
- - Decrease Docker image size
- - Error handling
- - Unit testing
- - Include the option to scrub video files
- - Take spaces into account in filenames
+ - Account for relative file paths ([Issue #1](https://github.com/truthandtransparency/scrubber/issues/1))
+ - Take spaces into account in filenames ([Issue #2](https://github.com/truthandtransparency/scrubber/issues/2))
+ - Decrease Docker image size ([Issue #3](https://github.com/truthandtransparency/scrubber/issues/3))
+ - Error handling ([Issue #4](https://github.com/truthandtransparency/scrubber/issues/4)
+ - Unit testing ([Issue #5](https://github.com/truthandtransparency/scrubber/issues/5))
+ - Include the option to scrub video files ([Issue #6](https://github.com/truthandtransparency/scrubber/issues/6))
